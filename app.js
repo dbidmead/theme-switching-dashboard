@@ -61,9 +61,22 @@ const lightTheme = {
 
 const toggle = document.querySelector(".toggle");
 
-let isModeDark = true;
+const defaultTheme = "dark";
+let currentTheme = localStorage.getItem("theme")
+  ? localStorage.getItem("theme")
+  : defaultTheme;
+let initialTheme = currentTheme == "dark" ? darkTheme : lightTheme;
+setMode(initialTheme);
+currentTheme == "light"
+  ? toggle.classList.add("toggled")
+  : toggle.classList.remove("toggled");
+
+// localStorage.clear();
 
 toggle.addEventListener("click", () => {
+  currentTheme = localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : defaultTheme;
   toggle.classList.toggle("toggled");
   let animation = toggle.classList.contains("toggled")
     ? "slide-right"
@@ -72,9 +85,10 @@ toggle.addEventListener("click", () => {
   toggle.firstElementChild.addEventListener("animationend", () => {
     toggle.firstElementChild.classList.remove(animation);
   });
-  let newTheme = isModeDark ? lightTheme : darkTheme;
+
+  let newTheme = currentTheme == "dark" ? lightTheme : darkTheme;
   setMode(newTheme);
-  isModeDark = !isModeDark;
+  localStorage.setItem("theme", currentTheme == "light" ? "dark" : "light");
 });
 
 function setMode(theme) {
