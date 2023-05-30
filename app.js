@@ -71,8 +71,6 @@ currentTheme == "light"
   ? toggle.classList.add("toggled")
   : toggle.classList.remove("toggled");
 
-// localStorage.clear();
-
 toggle.addEventListener("click", () => {
   currentTheme = localStorage.getItem("theme")
     ? localStorage.getItem("theme")
