@@ -233,6 +233,7 @@ span {
   gap: 0.25em;
   font-size: 0.85em;
   align-items: center;
+  justify-content: center;
 }
 
 .followers-container > h1 {
@@ -335,7 +336,12 @@ span {
   .followers-cell {
     gap: 1.5em;
   }
+
   .followers-container {
     gap: 0;
+  }
+
+  .update-container {
+    gap: 0.25em;
   }
 }

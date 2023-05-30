@@ -1,5 +1,46 @@
 const root = document.querySelector(":root");
 
+const followerDisplays = document.querySelectorAll(".followers-display");
+setSocialMediaPlatforms(followerDisplays);
+const followerUpdateDisplays = document.querySelectorAll(".update-display");
+setSocialMediaPlatforms(followerUpdateDisplays);
+const todayDisplays = document.querySelectorAll(".number-display");
+setSocialMediaPlatforms(todayDisplays);
+const todayUpdateDisplays = document.querySelectorAll(".percent");
+setSocialMediaPlatforms(todayUpdateDisplays);
+
+const data = await fetch("./data.json").then((res) => res.json());
+
+setDataValues();
+
+function setDataValues() {
+  followerDisplays.forEach((display) => {
+    display.textContent = data[display.socialMediaPlatform].followers;
+  });
+  followerUpdateDisplays.forEach((display) => {
+    display.textContent = data[display.socialMediaPlatform].followersToday;
+  });
+  todayDisplays.forEach((display) => {
+    let displayParent = display.parentElement.parentElement;
+    display.textContent = displayParent.classList.contains("views")
+      ? data[display.socialMediaPlatform].views.value
+      : data[display.socialMediaPlatform].likes.value;
+  });
+  todayUpdateDisplays.forEach((display) => {
+    let displayParent = display.parentElement.parentElement;
+    display.textContent = displayParent.classList.contains("views")
+      ? data[display.socialMediaPlatform].views.percent + "%"
+      : data[display.socialMediaPlatform].likes.percent + "%";
+  });
+}
+
+function setSocialMediaPlatforms(array) {
+  array.forEach((display) => {
+    display.socialMediaPlatform =
+      display.classList[display.classList.length - 1];
+  });
+}
+
 const darkTheme = {
   "--bg-color": "hsl(230, 17%, 14%)",
   "--bg-color-top": "hsl(232, 19%, 15%)",

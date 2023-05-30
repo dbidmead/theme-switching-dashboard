@@ -1,0 +1,53 @@
+{
+  "fb": {
+    "followers": 1987,
+    "followersToday": 12,
+    "views": {
+      "value": 87,
+      "percent": 3
+    },
+    "likes": {
+      "value": 52,
+      "percent": 2
+    }
+  },
+
+  "tw": {
+    "followers": 1044,
+    "followersToday": 99,
+    "views": {
+      "value": 117,
+      "percent": 303
+    },
+    "likes": {
+      "value": 507,
+      "percent": 553
+    }
+  },
+
+  "ig": {
+    "followers": "11k",
+    "followersToday": 1099,
+    "views": {
+      "value": "52k",
+      "percent": 1375
+    },
+    "likes": {
+      "value": 5462,
+      "percent": 2257
+    }
+  },
+
+  "yt": {
+    "followers": 8239,
+    "followersToday": 144,
+    "views": {
+      "value": 1407,
+      "percent": 12
+    },
+    "likes": {
+      "value": 107,
+      "percent": 19
+    }
+  }
+}
